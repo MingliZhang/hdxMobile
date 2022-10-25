@@ -25,6 +25,18 @@ I have not yet got this to work on my m1 mac... If you are successful, please co
 
 1. Comming Soon! Hopefully...
 
+## Build
+
+### Andriod
+
+1. run the command ``
+
+### IOS
+
+I have not yet got this to work on my m1 mac... If you are successful, please complete the following guide.
+
+1. Comming Soon! Hopefully...
+
 ## Dependencies
 
 - react-native-safe-area-context: Create a safe area to add our app.
