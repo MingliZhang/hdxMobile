@@ -36,7 +36,6 @@ export default function RelatedSpecialist({navigation, related_data}) {
               onPress={() =>
                 navigation.push('Detail', {
                   id: item.id,
-                  title: item.name,
                 })
               }>
               <SpeciallistImage url={item.image_url} />

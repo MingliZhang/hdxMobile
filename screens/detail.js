@@ -35,14 +35,15 @@ export default function Detail({navigation}) {
   const [data, setData] = useState({});
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [loadingRela, setLoadingRelaInfo] = useState(true);
+  // const id = navigation.getParam('id');
   useEffect(() => {
     getDataFromMySQL(navigation.state.routeName, {
       id: id,
     })
-      .then(data => {
-        setData(data.details);
+      .then(response => {
+        setData(response.details[0]);
         setLoadingInfo(false);
-        setRelatedSpecialist(data.related);
+        setRelatedSpecialist(response.related);
         setLoadingRelaInfo(false);
       })
       .catch(error => {
@@ -55,7 +56,7 @@ export default function Detail({navigation}) {
   }, []);
   return (
     <>
-      <StatusBar></StatusBar>
+      <StatusBar />
       <SafeAreaView style={styles.backgorund}>
         <ScrollView style={styles.contentContainer}>
           {loadingInfo ? (

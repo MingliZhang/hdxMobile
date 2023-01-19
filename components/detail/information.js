@@ -34,29 +34,39 @@ const styles = EStyleSheet.create({
 });
 
 export default function Information({data}) {
+  console.log(data);
   return (
-    <View style={styles.basicInfo}>
-      <Image
-        style={styles.image}
-        source={
-          data.image_url
-            ? {uri: data.image_url}
-            : require('../../assets/image/profile_image.jpg')
-        }
-      />
-      <View style={styles.infoList}>
-        <Text style={styles.nameText}>{data.name}</Text>
-        <Text style={styles.subText}>{data.education.join(' / ')}</Text>
+    <View>
+      <View style={styles.basicInfo}>
+        <Image
+          style={styles.image}
+          source={
+            data.image_url
+              ? {uri: data.image_url}
+              : require('../../assets/image/profile_image.jpg')
+          }
+        />
+        <View style={styles.infoList}>
+          <Text style={styles.nameText}>{data.name}</Text>
+          <Text style={styles.subText}>{data.education_name}</Text>
+
+          <Text style={styles.subText}>
+            {data.email ? data.email : 'Email Unknown'}
+          </Text>
+          <Text style={styles.subText}>
+            {data.phone_no ? data.phone_no : 'Phone # Unknown'}
+          </Text>
+          <Text style={styles.subText}>
+            {data.country_name ? data.country_name : 'Country Unknown'}
+          </Text>
+        </View>
+      </View>
+      <View>
         <Text style={styles.subText}>
-          {data.organization ? data.organization : 'Organization Unknown'} /{' '}
-          {data.department ? data.department : 'Department Unknown'} /{' '}
-          {data.country ? data.country : 'Country Unknown'}
+          {data.organization_name ? data.organization_name : null}
         </Text>
         <Text style={styles.subText}>
-          {data.email ? data.email : 'Email Unknown'}
-        </Text>
-        <Text style={styles.subText}>
-          {data.phone_no ? data.phone_no : 'Phone # Unknown'}
+          {data.designation ? data.designation : null}
         </Text>
       </View>
     </View>

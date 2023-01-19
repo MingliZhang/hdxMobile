@@ -30,7 +30,6 @@ export default function ResultItem({navigation, item, titles}) {
       onPress={() =>
         navigation.push('Detail', {
           id: item.id,
-          title: item[titles[0]],
         })
       }
       style={styles.itemContainer}>
