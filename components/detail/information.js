@@ -34,7 +34,6 @@ const styles = EStyleSheet.create({
 });
 
 export default function Information({data}) {
-  console.log(data);
   return (
     <View>
       <View style={styles.basicInfo}>

@@ -29,7 +29,11 @@ I have not yet got this to work on my m1 mac... If you are successful, please co
 
 ### Andriod
 
-1. run the command ``
+The process is described throughly [here](https://youtu.be/A3--3Ozxz6o). Some of the steps mentioned only needs to be done once.
+
+1. Go to the android directory. The following command must be run there.
+2. run the command `./gradlew bundleRelease` and wait for the build to finish.
+3.
 
 ### IOS
 

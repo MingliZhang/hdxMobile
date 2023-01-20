@@ -1,7 +1,6 @@
 import {remove} from 'lodash';
 
 export default async function getDataFromMySQL(screen, params) {
-  // console.log('screen is ', screen);
   switch (screen) {
     case 'Results': {
       let response = await fetch(
