@@ -105,8 +105,9 @@ export default function Results({navigation}) {
       field: field,
       query: trim(query),
     })
-      .then(data => {
-        setData(data);
+      .then(response => {
+        // console.log('response', response);
+        setData(response);
         setLoading(false);
       })
       .catch(error => {
@@ -118,6 +119,7 @@ export default function Results({navigation}) {
           text1: error,
         });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, field]);
   return (
     <>

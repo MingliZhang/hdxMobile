@@ -25,6 +25,7 @@ const styles = EStyleSheet.create({
   },
 });
 export default function ResultItem({navigation, item, titles}) {
+  // console.log('titles', item);
   return (
     <Pressable
       onPress={() =>

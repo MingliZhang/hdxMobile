@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import {isValidUrl} from '../utilities/utility';
 
 const styles = EStyleSheet.create({
   image: {
@@ -16,7 +17,11 @@ export default function SpeciallistImage({url}) {
     <Image
       style={styles.image}
       defaultSource={require('../assets/image/profile_image.jpg')}
-      source={url ? {uri: url} : require('../assets/image/profile_image.jpg')}
+      source={
+        url
+          ? {uri: `data:image/png;base64,${url}`}
+          : require('../assets/image/profile_image.jpg')
+      }
     />
   );
 }
