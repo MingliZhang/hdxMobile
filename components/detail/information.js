@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {isValidUrl} from '../../utilities/utility';
+import {trim} from 'lodash';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
@@ -35,20 +36,30 @@ const styles = EStyleSheet.create({
 });
 
 export default function Information({data}) {
-  console.log(data);
+  console.log(
+    data.name
+      .replace(/(\r\n|\n|\r)/gm, '')
+      .replace(/\s+/g, ' ')
+      .trim(),
+  );
   return (
     <View>
       <View style={styles.basicInfo}>
         <Image
           style={styles.image}
           source={
-            data.image_url && isValidUrl(data.image_url)
+            data.image_url
               ? {uri: `data:image/png;base64,${data.image_url}`}
               : require('../../assets/image/profile_image.jpg')
           }
         />
         <View style={styles.infoList}>
-          <Text style={styles.nameText}>{data.name}</Text>
+          <Text style={styles.nameText}>
+            {data.name
+              .replace(/(\r\n|\n|\r)/gm, '')
+              .replace(/\s+/g, ' ')
+              .trim()}
+          </Text>
           <Text style={styles.subText}>{data.education_name}</Text>
 
           <Text style={styles.subText}>

@@ -25,7 +25,6 @@ const styles = EStyleSheet.create({
   },
 });
 export default function ResultItem({navigation, item, titles}) {
-  // console.log('titles', item);
   return (
     <Pressable
       onPress={() =>
@@ -34,13 +33,23 @@ export default function ResultItem({navigation, item, titles}) {
         })
       }
       style={styles.itemContainer}>
-      <SpeciallistImage url={item.image_url} />
+      {/* <SpeciallistImage url={item.image_url} /> */}
       <Text style={styles.mainText}>
-        {item[titles[0]] ? item[titles[0]] : 'Unknown'}
+        {item[titles[0]]
+          ? item[titles[0]]
+              .replace(/(\r\n|\n|\r)/gm, '')
+              .replace(/\s+/g, ' ')
+              .trim()
+          : 'Unknown'}
       </Text>
       <HDivider />
       <Text style={styles.subText}>
-        {item[titles[1]] ? item[titles[1]] : 'Unknown'}
+        {item[titles[1]]
+          ? item[titles[1]]
+              .replace(/(\r\n|\n|\r)/gm, '')
+              .replace(/\s+/g, ' ')
+              .trim()
+          : 'Unknown'}
       </Text>
     </Pressable>
   );
