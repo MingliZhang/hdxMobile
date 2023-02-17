@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
-import {isValidUrl} from '../../utilities/utility';
-import {trim} from 'lodash';
+import {trimString} from '../../utilities/utility';
+
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
@@ -36,12 +36,6 @@ const styles = EStyleSheet.create({
 });
 
 export default function Information({data}) {
-  console.log(
-    data.name
-      .replace(/(\r\n|\n|\r)/gm, '')
-      .replace(/\s+/g, ' ')
-      .trim(),
-  );
   return (
     <View>
       <View style={styles.basicInfo}>
@@ -54,12 +48,7 @@ export default function Information({data}) {
           }
         />
         <View style={styles.infoList}>
-          <Text style={styles.nameText}>
-            {data.name
-              .replace(/(\r\n|\n|\r)/gm, '')
-              .replace(/\s+/g, ' ')
-              .trim()}
-          </Text>
+          <Text style={styles.nameText}>{trimString(data.name)}</Text>
           <Text style={styles.subText}>{data.education_name}</Text>
 
           <Text style={styles.subText}>

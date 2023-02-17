@@ -10,4 +10,10 @@ const isValidUrl = urlString => {
   ); // validate fragment locator
   return !!urlPattern.test(urlString);
 };
-export {isValidUrl};
+
+const trimString = string =>
+  string
+    .replace(/(\r\n|\n|\r)/gm, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+export {isValidUrl, trimString};

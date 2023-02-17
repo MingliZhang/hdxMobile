@@ -1,6 +1,7 @@
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {Text, Pressable} from 'react-native';
+import {trimString} from '../../utilities/utility';
 import {SpeciallistImage, HDivider} from '../';
 
 const styles = EStyleSheet.create({
@@ -10,7 +11,7 @@ const styles = EStyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'white',
     alignItems: 'center',
-    width: '46%',
+    width: '96%',
     marginLeft: '2%',
     marginBottom: '2%',
     padding: '$lgPadding',
@@ -35,21 +36,11 @@ export default function ResultItem({navigation, item, titles}) {
       style={styles.itemContainer}>
       {/* <SpeciallistImage url={item.image_url} /> */}
       <Text style={styles.mainText}>
-        {item[titles[0]]
-          ? item[titles[0]]
-              .replace(/(\r\n|\n|\r)/gm, '')
-              .replace(/\s+/g, ' ')
-              .trim()
-          : 'Unknown'}
+        {item[titles[0]] ? trimString(item[titles[0]]) : 'Unknown'}
       </Text>
       <HDivider />
       <Text style={styles.subText}>
-        {item[titles[1]]
-          ? item[titles[1]]
-              .replace(/(\r\n|\n|\r)/gm, '')
-              .replace(/\s+/g, ' ')
-              .trim()
-          : 'Unknown'}
+        {item[titles[1]] ? trimString(item[titles[1]]) : 'Unknown'}
       </Text>
     </Pressable>
   );

@@ -106,7 +106,6 @@ export default function Results({navigation}) {
       query: trim(query),
     })
       .then(response => {
-        // console.log('response', response);
         setData(response);
         setLoading(false);
       })
@@ -166,7 +165,7 @@ export default function Results({navigation}) {
             {data.length ? (
               <FlatList
                 data={data}
-                numColumns={2}
+                numColumns={1}
                 keyExtractor={(item, index) => item.id}
                 renderItem={({item}) => (
                   <ResultItem
