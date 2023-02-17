@@ -25,15 +25,18 @@ I have not yet got this to work on my m1 mac... If you are successful, please co
 
 1. Comming Soon! Hopefully...
 
-## Build
+## Build For Production
 
 ### Andriod
 
 The process is described throughly [here](https://youtu.be/A3--3Ozxz6o). Some of the steps mentioned only needs to be done once.
 
-1. Go to the android directory. The following command must be run there.
-2. run the command `./gradlew bundleRelease` and wait for the build to finish.
-3.
+1. Change version number in the package.json file first.
+2. Run `react-native-version --never-amend`, this command should update all of the version numbers in the repo and increment the versionCode.
+3. cd into the android directory using the command `cd android`.
+4. Build the app using the command `./gradlew bundleRelease`. This might take a while to complete depending on your hardware and current usage.
+5. Locate the new .aab file under `android/app/build/outputs/bundle/release`. It should named as app-release.aab and.
+6. Upload the aab file into google play console.
 
 ### IOS
 
